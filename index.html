@@ -5,6 +5,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#142b45">
+  <link rel="manifest" href="./manifest.json">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="YO Y MIS 3">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="description" content="YO Y MIS 3: formación, liderazgo y duplicación responsable.">
 <title>YO Y MIS 3 | Redes de Mercadeo 4Life</title>
 <style>
@@ -196,7 +201,17 @@ footer { text-align:center; color:var(--muted); font-size:12px; padding:16px; }
 </nav>
 
 <footer>YO Y MIS 3 · Formación responsable y liderazgo</footer>
-
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(registration => {
+        console.log("YO Y MIS 3 está preparada para funcionar sin conexión.");
+      })
+      .catch(error => {
+        console.error("Error al activar el modo sin conexión:", error);
+      });
+  });
+}
 <script>
 const modules = [
   ["Primer contacto","Aprender a iniciar una conversación respetuosa y natural."],
