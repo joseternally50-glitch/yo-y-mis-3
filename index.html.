@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#142b45">
+<meta name="description" content="YO Y MIS 3: formación, liderazgo y duplicación responsable.">
+<title>YO Y MIS 3 | Redes de Mercadeo 4Life</title>
+<style>
+:root {
+  --bg:#f3f6fa; --surface:#ffffff; --text:#172b43;
+  --muted:#65758a; --primary:#173b60; --accent:#d6a94b;
+  --line:#dce4ed;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:Arial,sans-serif; font-size:16px; line-height:1.6;
+}
+body.dark {
+  --bg:#101923; --surface:#1b2938; --text:#edf3f8;
+  --muted:#b2c0ce; --primary:#8db9e4; --accent:#e5bd69;
+  --line:#344657;
+}
+header {
+  background:#142b45; color:white; padding:24px 18px;
+  text-align:center;
+}
+header h1 { margin:0; letter-spacing:2px; font-size:27px; }
+header p { margin:6px 0 0; color:#dce8f4; }
+header small { display:block; margin-top:10px; color:#e5c77f; }
+main { max-width:900px; margin:auto; padding:18px 14px 100px; }
+.panel {
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; padding:18px; margin-bottom:16px;
+}
+input, select, button {
+  font:inherit; border-radius:9px; padding:11px;
+}
+input, select {
+  width:100%; border:1px solid var(--line);
+  background:var(--surface); color:var(--text);
+}
+button {
+  border:0; cursor:pointer; background:var(--primary);
+  color:white; font-weight:600;
+}
+button.secondary { background:var(--line); color:var(--text); }
+button:focus, input:focus, select:focus {
+  outline:3px solid var(--accent); outline-offset:2px;
+}
+h2 { margin-top:0; }
+h3 { margin-bottom:5px; }
+.muted { color:var(--muted); }
+.result {
+  display:block; width:100%; text-align:left; margin:8px 0;
+  background:var(--bg); color:var(--text);
+  border:1px solid var(--line);
+}
+.reader { white-space:normal; }
+.reader p { margin:12px 0; }
+.meta { color:var(--muted); font-size:12px; margin-bottom:12px; }
+.module-card {
+  border:1px solid var(--line); padding:14px;
+  border-radius:10px; margin:10px 0;
+}
+.module-card button { margin-top:8px; }
+.bottom-nav {
+  position:fixed; bottom:0; left:0; right:0;
+  display:flex; justify-content:space-around; gap:4px;
+  padding:8px 4px calc(8px + env(safe-area-inset-bottom));
+  background:var(--surface); border-top:1px solid var(--line);
+  z-index:5;
+}
+.bottom-nav button {
+  flex:1; padding:9px 3px; font-size:12px;
+  background:transparent; color:var(--text);
+}
+.bottom-nav button.active { background:var(--primary); color:white; }
+.setting-row { margin:14px 0; }
+.setting-row label { display:block; font-weight:600; margin-bottom:5px; }
+.setting-row input[type=checkbox] { width:auto; }
+.hidden { display:none !important; }
+footer { text-align:center; color:var(--muted); font-size:12px; padding:16px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>YO Y MIS 3</h1>
+  <p>REDES DE MERCADEO 4LIFE</p>
+  <small>Una visión. Un mensaje. Un sistema.</small>
+</header>
+
+<main>
+  <section id="home" class="view">
+    <div class="panel">
+      <h2>Bienvenido a YO Y MIS 3</h2>
+      <p>Una metodología de formación para aprender, aplicar, enseñar y duplicar con responsabilidad.</p>
+      <p class="muted">Personas antes que productos. Clientes antes que volumen. Honestidad antes que persuasión.</p>
+    </div>
+    <div class="panel">
+      <h2>Índice principal</h2>
+      <input id="search" type="search" placeholder="Buscar en módulos y párrafos..." aria-label="Buscar en todo el contenido">
+      <div id="searchResults" aria-live="polite"></div>
+    </div>
+    <div class="panel">
+      <h2>Ruta de formación</h2>
+      <div id="moduleList"></div>
+    </div>
+  </section>
+
+  <section id="readerView" class="view hidden">
+    <div class="panel">
+      <button class="secondary" onclick="showView('home')">← Volver al índice</button>
+      <div id="readerContent" class="reader"></div>
+    </div>
+  </section>
+
+  <section id="special" class="view hidden">
+    <div class="panel">
+      <h2>Especiales</h2>
+      <h3>Los 10 principios de YO Y MIS 3</h3>
+      <ol>
+        <li>Personas antes que productos.</li>
+        <li>Clientes antes que volumen.</li>
+        <li>Servicio antes que comisión.</li>
+        <li>Formación antes que duplicación.</li>
+        <li>Honestidad antes que persuasión.</li>
+        <li>Escuchar antes que hablar.</li>
+        <li>Enseñar antes que exigir.</li>
+        <li>Acompañar antes que abandonar.</li>
+        <li>Liderar con el ejemplo.</li>
+        <li>Crecer juntos y responsablemente.</li>
+      </ol>
+      <h3>Compromiso del equipo</h3>
+      <p>Aprender · Aplicar · Enseñar · Duplicar.</p>
+      <p class="muted">Esta metodología es independiente y no constituye un programa oficial de 4Life ni garantiza ingresos o rangos.</p>
+    </div>
+    <div class="panel">
+      <h2>Enlaces externos</h2>
+      <p><a href="https://www.4life.com/" target="_blank" rel="noopener">Sitio web de 4Life</a></p>
+      <p class="muted">Consulta siempre las políticas, productos, precios y planes oficiales aplicables a tu país.</p>
+    </div>
+  </section>
+
+  <section id="settings" class="view hidden">
+    <div class="panel">
+      <h2>Ajustes de lectura</h2>
+      <div class="setting-row">
+        <label><input type="checkbox" id="accessible"> Modo accesible</label>
+      </div>
+      <div class="setting-row">
+        <label for="fontSize">Tamaño de letra: <span id="fontLabel">16</span> puntos</label>
+        <input id="fontSize" type="range" min="10" max="24" value="16">
+      </div>
+      <div class="setting-row">
+        <label for="lineHeight">Espacio entre líneas</label>
+        <select id="lineHeight">
+          <option value="1.4">Compacto</option>
+          <option value="1.6" selected>Normal</option>
+          <option value="1.9">Amplio</option>
+          <option value="2.2">Muy amplio</option>
+        </select>
+      </div>
+      <div class="setting-row">
+        <label for="alignment">Alineación del texto</label>
+        <select id="alignment">
+          <option value="left">Izquierda</option>
+          <option value="justify">Justificada</option>
+          <option value="center">Centrada</option>
+        </select>
+      </div>
+      <div class="setting-row">
+        <label><input type="checkbox" id="boldText"> Texto en negritas</label>
+      </div>
+      <div class="setting-row">
+        <label><input type="checkbox" id="darkMode"> Modo nocturno</label>
+      </div>
+      <button class="secondary" onclick="resetSettings()">Restablecer ajustes</button>
+    </div>
+    <div class="panel">
+      <h2>Compartir YO Y MIS 3</h2>
+      <p>Comparte el enlace general de la aplicación, no páginas individuales.</p>
+      <button onclick="shareApp()">Compartir aplicación</button>
+      <p id="shareStatus" class="muted" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<nav class="bottom-nav" aria-label="Navegación principal">
+  <button class="active" data-view="home" onclick="showView('home')">⌂ Inicio</button>
+  <button data-view="home" onclick="showView('home')">▤ Módulos</button>
+  <button data-view="special" onclick="showView('special')">✦ Especiales</button>
+  <button data-view="settings" onclick="showView('settings')">⚙ Ajustes</button>
+</nav>
+
+<footer>YO Y MIS 3 · Formación responsable y liderazgo</footer>
+
+<script>
+const modules = [
+  ["Primer contacto","Aprender a iniciar una conversación respetuosa y natural."],
+  ["Conocer a la persona","Escuchar sus intereses, necesidades y objetivos sin presionar."],
+  ["Presentar 4Life","Conocer la compañía y utilizar información oficial y verificable."],
+  ["Presentar productos","Explicar los productos sin atribuirles curaciones ni beneficios médicos no autorizados."],
+  ["Explicar redes de mercadeo","Comprender el modelo, las ventas, los costos y las responsabilidades."],
+  ["Presentar YO Y MIS 3","Explicar el método de formación: aprender, aplicar, enseñar y duplicar."],
+  ["Explicar la oportunidad","Presentar requisitos, costos y condiciones reales del mercado correspondiente."],
+  ["Resolver objeciones","Responder preguntas con honestidad, respeto y sin presión."],
+  ["Cierre e invitación","Permitir que cada persona decida libremente sus próximos pasos."],
+  ["Seguimiento","Acompañar, formar y dar servicio de manera constante."]
+];
+
+const content = [
+  ["Objetivo","Iniciar una conversación genuina, sin presionar ni hacer promesas."],
+  ["Objetivo","Conocer qué busca la persona y escuchar antes de presentar una propuesta."],
+  ["Objetivo","Compartir información de la compañía utilizando fuentes oficiales del país."],
+  ["Objetivo","Presentar información verificable y respetar las indicaciones legales y comerciales."],
+  ["Objetivo","Explicar que los resultados dependen de ventas, actividad, costos y otros factores."],
+  ["Objetivo","Enseñar un sistema sencillo que pueda aprenderse y practicarse."],
+  ["Objetivo","Explicar todos los costos y requisitos antes de que la persona tome una decisión."],
+  ["Objetivo","Escuchar la inquietud y responder sin discutir, exagerar ni manipular."],
+  ["Objetivo","Invitar a decidir con libertad y facilitar información para el siguiente paso."],
+  ["Objetivo","Mantener el acompañamiento y ayudar a desarrollar habilidades."]
+];
+
+const paragraphs = [];
+modules.forEach((m,i) => {
+  paragraphs.push({module:i, title:m[0], text:m[1]});
+  paragraphs.push({module:i, title:"Objetivo", text:content[i][1]});
+});
+const moduleList = document.getElementById("moduleList");
+
+modules.forEach((m,i) => {
+  const card = document.createElement("div");
+  card.className = "module-card";
+  const title = document.createElement("strong");
+  title.textContent = `${i+1}. ${m[0]}`;
+  const desc = document.createElement("p");
+  desc.className = "muted";
+  desc.textContent = m[1];
+  const btn = document.createElement("button");
+  btn.textContent = "Abrir módulo";
+  btn.onclick = () => openModule(i);
+  card.append(title,desc,btn);
+  moduleList.appendChild(card);
+});
+
+function showView(id) {
+  document.querySelectorAll(".view").forEach(v => v.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  document.querySelectorAll(".bottom-nav button").forEach(b =>
+    b.classList.toggle("active", b.dataset.view === id)
+  );
+  window.scrollTo(0,0);
+}
+
+function openModule(index) {
+  const m = modules[index];
+  const items = paragraphs.filter(p => p.module === index);
+  const target = document.getElementById("readerContent");
+  target.replaceChildren();
+  const heading = document.createElement("h2");
+  heading.textContent = `${index+1}. ${m[0]}`;
+  target.appendChild(heading);
+  const sheet = document.createElement("div");
+  sheet.className = "meta";
+  sheet.textContent = `Hoja ${index+1} · Módulo ${index+1} de 10`;
+  target.appendChild(sheet);
+  items.forEach((p,j) => {
+    const h = document.createElement("h3");
+    h.textContent = p.title;
+    const para = document.createElement("p");
+    para.textContent = p.text;
+    const meta = document.createElement("div");
+    meta.className = "meta";
+    meta.textContent = `Hoja ${index+1} · Párrafo ${j+1}`;
+    target.append(h,para,meta);
+  });
+  const note = document.createElement("p");
+  note.className = "muted";
+  note.textContent = "Versión inicial de estructura. Los guiones completos de formación se incorporarán en la siguiente etapa.";
+  target.appendChild(note);
+  showView("readerView");
+}
+
+document.getElementById("search").addEventListener("input", event => {
+  const q = event.target.value.trim().toLowerCase();
+  const results = document.getElementById("searchResults");
+  results.replaceChildren();
+  if (!q) return;
+  const matches = paragraphs.filter(p =>
+    p.text.toLowerCase().includes(q) ||
+    p.title.toLowerCase().includes(q) ||
+    modules[p.module][0].toLowerCase().includes(q)
+  );
+  if (!matches.length) {
+    results.textContent = "No encontramos coincidencias.";
+    return;
+  }
+  matches.forEach(p => {
+    const btn = document.createElement("button");
+    btn.className = "result";
+    btn.textContent = `${modules[p.module][0]} · ${p.title}: ${p.text}`;
+    btn.onclick = () => openModule(p.module);
+    results.appendChild(btn);
+  });
+});
+
+const fontSize = document.getElementById("fontSize");
+fontSize.addEventListener("input", () => {
+  document.body.style.fontSize = fontSize.value + "pt";
+  document.getElementById("fontLabel").textContent = fontSize.value;
+});
+document.getElementById("lineHeight").addEventListener("change", e => {
+  document.body.style.lineHeight = e.target.value;
+});
+document.getElementById("alignment").addEventListener("change", e => {
+  document.querySelectorAll(".reader, .panel").forEach(el => el.style.textAlign = e.target.value);
+});
+document.getElementById("boldText").addEventListener("change", e => {
+  document.body.style.fontWeight = e.target.checked ? "700" : "400";
+});
+document.getElementById("darkMode").addEventListener("change", e => {
+  document.body.classList.toggle("dark", e.target.checked);
+});
+document.getElementById("accessible").addEventListener("change", e => {
+  if (e.target.checked) {
+    fontSize.value = 20;
+    document.getElementById("fontLabel").textContent = "20";
+    document.body.style.fontSize = "20pt";
+    document.body.style.lineHeight = "1.9";
+    document.getElementById("lineHeight").value = "1.9";
+  }
+});
+function resetSettings() {
+  fontSize.value = 16;
+  document.getElementById("fontLabel").textContent = "16";
+  document.getElementById("lineHeight").value = "1.6";
+  document.getElementById("alignment").value = "left";
+  document.getElementById("boldText").checked = false;
+  document.getElementById("darkMode").checked = false;
+  document.getElementById("accessible").checked = false;
+  document.body.classList.remove("dark");
+  document.body.style.fontSize = "16pt";
+  document.body.style.lineHeight = "1.6";
+  document.body.style.fontWeight = "400";
+  document.querySelectorAll(".reader, .panel").forEach(el => el.style.textAlign = "left");
+}
+async function shareApp() {
+  const status = document.getElementById("shareStatus");
+  const url = window.location.href.split("#")[0];
+  try {
+    if (navigator.share) {
+      await navigator.share({title:"YO Y MIS 3", text:"Conoce YO Y MIS 3", url});
+      status.textContent = "Se abrió la opción de compartir.";
+    } else if (navigator.clipboard) {
+      await navigator.clipboard.writeText(url);
+      status.textContent = "Enlace general copiado. Ya puedes compartirlo.";
+    } else {
+      status.textContent = "Cuando publiquemos la aplicación, podrás compartir su enlace general desde el navegador.";
+    }
+  } catch (error) {
+    status.textContent = "No se completó la acción de compartir.";
+  }
+}
+</script>
+</body>
+</html>
