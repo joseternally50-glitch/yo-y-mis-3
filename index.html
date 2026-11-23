@@ -244,7 +244,58 @@ modules.forEach((m,i) => {
   paragraphs.push({module:i, title:m[0], text:m[1]});
   paragraphs.push({module:i, title:"Objetivo", text:content[i][1]});
 });
-const moduleList = document.getElementById("moduleList");
+
+const module1Lessons = [
+  ["LECCIÓN 1. Comprender el primer contacto", "El primer contacto es el momento en que iniciamos una conversación para conocer a una persona, escucharla y determinar si tiene interés en recibir información sobre bienestar o emprendimiento. No es una venta ni una inscripción: es el comienzo de una relación."],
+
+  ["1.1. Nuestro verdadero objetivo", "Buscamos establecer confianza, conocer a la persona, identificar sus intereses, obtener permiso para compartir información y acordar una posible segunda conversación. No todas las conversaciones tienen que terminar en una presentación."],
+
+  ["1.2. Las cinco reglas del primer contacto", "1. Sonríe y transmite confianza. 2. Habla con naturalidad. 3. Escucha más de lo que hablas. 4. No inventes resultados ni oportunidades. 5. Respeta siempre la decisión de la otra persona."],
+
+  ["LECCIÓN 2. Identificar a quién podemos contactar", "Podemos conversar con amigos, conocidos, familiares, antiguos compañeros, emprendedores, profesionales y personas interesadas en aprender algo nuevo. No buscamos personas únicamente por su capacidad económica. Buscamos relaciones honestas y legítimas."],
+
+  ["2.1. Mi lista inicial de contactos", "Elabora una lista de 20 personas. Anota su nombre o iniciales, qué relación tienes con ellas y qué intereses podrían tener. Esta lista sirve para organizar tus conversaciones, no para presionar a nadie."],
+
+  ["LECCIÓN 3. Cómo iniciar una conversación", "Existen cuatro formas principales de iniciar una conversación: presencialmente, por WhatsApp, mediante redes sociales o por recomendación. En todos los casos debemos ser naturales, transparentes y respetuosos."],
+
+  ["3.1. Contacto presencial", "Ejemplo: ¡Hola! ¿Cómo estás? Estoy desarrollando un proyecto relacionado con bienestar y emprendimiento. Me gustaría contarte un poco y conocer tu opinión. ¿Te interesaría?"],
+
+  ["3.2. Contacto por WhatsApp", "Ejemplo: ¡Hola! ¿Cómo estás? Espero que todo marche muy bien. Estoy trabajando en un proyecto nuevo relacionado con bienestar y desarrollo empresarial. Me gustaría compartirte información cuando tengas un momento. ¿Te interesaría conocerlo?"],
+
+  ["3.3. Contacto por redes sociales", "Ejemplo: ¡Hola! He visto algunas de tus publicaciones y me parece interesante lo que estás haciendo. Estoy desarrollando un proyecto relacionado con emprendimiento y crecimiento personal. ¿Te gustaría que conversemos?"],
+
+  ["3.4. Contacto por recomendación", "Ejemplo: Hola, ¿cómo estás? Una persona que ambos conocemos me comentó que quizás te podría interesar conocer un proyecto en el que estoy trabajando. ¿Te gustaría recibir información? Pide autorización antes de utilizar el nombre de quien recomienda."],
+
+  ["LECCIÓN 4. Cómo despertar interés", "La clave no es hablar de nosotros todo el tiempo. Es aprender a hacer buenas preguntas, escuchar con atención y comprender qué busca la otra persona."],
+
+  ["4.1. Las cinco preguntas fundamentales", "1. ¿Actualmente estás trabajando o emprendiendo? 2. ¿Qué proyectos te gustaría desarrollar? 3. ¿Te interesa aprender sobre nuevas oportunidades empresariales? 4. ¿Qué habilidades te gustaría fortalecer? 5. ¿Estarías dispuesto a conocer una propuesta diferente? No hagas todas las preguntas seguidas. Conversa con naturalidad."],
+
+  ["4.2. Escuchar antes de presentar", "Si la persona expresa interés por emprender, podemos responder: Interesante. Estoy conociendo un modelo de negocio relacionado con productos y desarrollo de equipos comerciales. Si te parece, podemos revisar juntos cómo funciona, cuáles son sus costos y qué implica participar."],
+
+  ["LECCIÓN 5. Cómo responder a las primeras objeciones", "Si dice que no tiene tiempo: Lo entiendo. Podemos conversar cuando tengas disponibilidad. Si no tiene dinero: No hay problema. Primero puedes conocer la información y los costos, sin compromiso. Si no le interesa: Lo respeto. Gracias por escucharme."],
+
+  ["5.1. Preguntas difíciles", "Si pregunta si es una pirámide, explica con transparencia cómo funciona el modelo, de dónde provienen los ingresos y cuáles son las condiciones. Si pregunta cuánto va a ganar, aclara que no puedes garantizar ingresos: los resultados dependen de muchos factores y existe la posibilidad de no obtener ganancias."],
+
+  ["LECCIÓN 6. El momento de invitar", "Cuando existe interés, propone un siguiente paso concreto. Ejemplo: Me gustaría explicarte cómo funciona el proyecto, conocer sus productos y revisar las condiciones para participar. Podemos hacerlo en una conversación de unos 20 minutos. ¿Te gustaría? Si acepta, acuerda día y hora. Si no acepta, respeta su decisión."],
+
+  ["LECCIÓN 7. Práctica de campo", "Durante las próximas 48 horas: 1. Identifica 20 posibles contactos. 2. Selecciona cinco personas con quienes tengas una relación natural. 3. Inicia tres conversaciones. 4. Escucha sus respuestas. 5. Registra los resultados. 6. Reflexiona sobre lo que puedes mejorar. No necesitas cerrar ventas ni inscribir personas."],
+
+  ["LECCIÓN 8. Evaluación del aprendizaje", "Pregunta 1: ¿Cuál es el verdadero objetivo del primer contacto? Respuesta: generar confianza y conocer a la persona. Pregunta 2: ¿Qué hacemos cuando alguien no está interesado? Respuesta: respetar su decisión. Pregunta 3: ¿Qué hacemos cuando existe interés? Respuesta: compartir información clara y acordar un siguiente paso. Pregunta 4: ¿Qué debemos priorizar? Respuesta: escuchar y comprender. Pregunta 5: ¿Qué significa duplicar? Respuesta: enseñar a otra persona a aplicar el proceso responsablemente."],
+
+  ["LECCIÓN 9. Enseñar y duplicar", "Cuando hayas estudiado y practicado este módulo, enseña a otra persona qué es el primer contacto, cómo identificar posibles contactos, iniciar conversaciones, escuchar, responder sin presionar y acordar un siguiente paso. La persona debe practicar y demostrar que comprende el proceso."],
+
+  ["CIERRE DEL MÓDULO 1", "La primera conexión es humana. No buscamos convencer a todo el mundo. Buscamos aprender a conectar con las personas, escuchar sus necesidades y ofrecer información honesta cuando exista interés. Nuestra filosofía: APRENDER, APLICAR, ENSEÑAR Y DUPLICAR."]
+];
+
+module1Lessons.forEach(item => {
+  paragraphs.push({
+    module: 0,
+    title: item[0],
+    text: item[1]
+  });
+});
+
+  const moduleList = document.getElementById("moduleList");
 
 modules.forEach((m,i) => {
   const card = document.createElement("div");
